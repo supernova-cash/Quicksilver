@@ -258,13 +258,13 @@ module.exports = async function(deployer, network) {
     }
 
     if (network == "hecotest" || network == "heco") {
-        await deployer.deploy(sELA, Unitroller.address, InterestModel.address, 0.02e18.toString(), "Filda HT", "fHT", 18, admin);
+        await deployer.deploy(sELA, Unitroller.address, InterestModel.address, 0.02e18.toString(), "Universe HT", "uHT", 18, admin);
         await proxiedQstroller._supportMarket(sELA.address);
-        console.log("Done to support market fHT: ", sELA.address);
+        console.log("Done to support market uHT: ", sELA.address);
         let htCollateralFactor = 0.15e18.toString();
         await proxiedQstroller._setCollateralFactor(sELA.address, htCollateralFactor);
-        console.log("Done to set collateral factor %s for fHT %s", htCollateralFactor, sELA.address);
-        addressFactory["fHT"] = sELA.address;
+        console.log("Done to set collateral factor %s for uHT %s", htCollateralFactor, sELA.address);
+        addressFactory["uHT"] = sELA.address;
         await deployer.deploy(Maximillion, sELA.address);
         addressFactory["Maximillion"] = Maximillion.address;
     }

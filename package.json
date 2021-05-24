@@ -26,7 +26,7 @@
     "solparse": "^2.2.8"
   },
   "dependencies": {
-    "@truffle/hdwallet-provider": "^1.1.0",
+    "@truffle/hdwallet-provider": "^1.2.3",
     "eth-saddle": "^0.1.17"
   },
   "resolutions": {

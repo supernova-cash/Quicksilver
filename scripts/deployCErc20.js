@@ -22,8 +22,8 @@ module.exports = async function(callback) {
         let erc20 = await erc20Token.at(underlyingTokenAddr);
         let decimals = await erc20.decimals();
         let symbol = await erc20.symbol();
-        let fTokenName = "Filda " + symbol;
-        let fTokenSymbol = "f" + symbol.charAt(0).toUpperCase() + symbol.slice(1)
+        let fTokenName = "Universe " + symbol;
+        let fTokenSymbol = "u" + symbol.charAt(0).toUpperCase() + symbol.slice(1)
         let initialExchange = 0.02 * 10 ** decimals;
         console.log(`TokenDecimals: ${decimals}`)
         console.log(`TokenSymbol: ${symbol}`);
