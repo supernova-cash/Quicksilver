@@ -6,7 +6,8 @@ const erc20Delegate = artifacts.require("CErc20Delegate");
 const erc20Delegator = artifacts.require("CErc20Delegator");
 const Unitroller = artifacts.require("Unitroller");
 const CompoundLens = artifacts.require("CompoundLens");
-const QsPriceOracle = artifacts.require("QsPriceOracle");
+const QsPriceOracle = artifacts.require("QsPriceOracleV2");
+const ChainlinkAdaptor = artifacts.require("ChainlinkAdaptor");
 const QsConfig = artifacts.require("QsConfig");
 const Maximillion = artifacts.require("Maximillion");
 
@@ -18,8 +19,8 @@ const ELAToken = artifacts.require("ELAToken");
 
 // Parameters
 const closeFactor = 0.5e18.toString();
-const liquidationIncentive = 1.13e18.toString();
-const reserveFactor = 0.3e18.toString();
+const liquidationIncentive = 1.13e18.toString(); // 清算奖励
+const reserveFactor = 0.3e18.toString();    // 风险保障金
 
 const maxAssets = 10;
 
@@ -29,10 +30,12 @@ module.exports = async function(deployer, network) {
     await deployer.deploy(Qstroller);
     await deployer.deploy(CompoundLens);
     await deployer.deploy(QsPriceOracle);
-    await deployer.deploy(QsConfig);
+    await deployer.deploy(ChainlinkAdaptor, "0x8EC213E7191488C7873cEC6daC8e97cdbAdb7B35");
+    await deployer.deploy(QsConfig, "0x0000000000000000000000000000000000000000");
 
     addressFactory["Qstroller"] = Unitroller.address;
     addressFactory["QsPriceOracle"] = QsPriceOracle.address;
+    addressFactory["ChainlinkAdaptor"] = ChainlinkAdaptor.address
     addressFactory["QsConfig"] = QsConfig.address;
     addressFactory["CompoundLens"] = CompoundLens.address;
 
