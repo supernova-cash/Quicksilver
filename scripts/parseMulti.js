@@ -6,9 +6,9 @@ module.exports = async function(callback) {
     try {
         console.log("set tokens pause");
         let newTokenPause = {
-            "0x77Da11dd27e79b94F80A95F7252139D7b1dF81B3": 1,    // sNULS
-            "0x3f8d291bf3081E9aa12c603b13fd53573e31A809": 1,    // sMAN
-            "0x894298A6d4b85234CabE81497a89BBcF8d7BD002": 1,    // MAN
+            "0x551Aed47Ee9D0c589288e0c3392a8E677A3E369C": 0,    // sNULS
+            "0x67648aA7c25f1aa74151444052F5ca56fbB5DC70": 0,    // sMAN
+            "0x84D0401956f9265449B0B6794ED32283ce75755c": 0,    // MAN
         }
         let qsControllerInstance = await Qstroller.at(Unitroller.address);
         for (let ctokenaddr_ in newTokenPause) {

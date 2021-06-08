@@ -13,11 +13,11 @@ module.exports = async function(callback) {
             "0x0bf22aDf52a7fc41e72ceb1e47205E34AAC1Df65": 10e16,    // sNEO
             "0x5bb335E81a4Fb6f61Cb5a73243F21Fe9789F0eE2": 10e16,    // sFILDA
             "0x315aBbD0eD8F5A5C4d56f2BD9F97eef96325b49F": 10e16,    // sMDX
-            "0x77Da11dd27e79b94F80A95F7252139D7b1dF81B3": 0,    // sNULS
-            "0x3f8d291bf3081E9aa12c603b13fd53573e31A809": 0,    // sMAN
-            "0x7690e33581aF18538D0940E18CEE5b20C6f55208": 40e16,    // FILDA
+            "0x551Aed47Ee9D0c589288e0c3392a8E677A3E369C": 0,    // sNULS
+            "0x67648aA7c25f1aa74151444052F5ca56fbB5DC70": 0,    // sMAN
+            "0x3D57E1ea59a385D8403211408cF4336982476b95": 40e16,    // FILDA
             "0x1d6Cc73a2a0486d95260e8557b314537dd66eC15": 40e16,    // MDX
-            "0x894298A6d4b85234CabE81497a89BBcF8d7BD002": 40e16,    // MAN
+            "0x84D0401956f9265449B0B6794ED32283ce75755c": 40e16,    // MAN
             "0xf16d50407E97c60A059db55610b3C25828aFB341": 40e16,    // NULs
             "0x0FF521fC12E23998013c5Da168bb5bdf0011209B": 40e16,    // PNEO
         }
