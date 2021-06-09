@@ -9,7 +9,8 @@ const argv = require('yargs').argv;
 let reserveFactor = 0.15e18.toString();
 let underlyingTokenAddr = "0xd3f1be7f74d25f39184d2d0670966e2e837562e3";
 let collateralFactor = 0.05e18.toString();
-let interestModelAddress = "0x0Ea2372497A4A73CC8A11766489E3EF84027835E";
+// let interestModelAddress = "0x0Ea2372497A4A73CC8A11766489E3EF84027835E";
+let interestModelAddress = "0x1fD936dcA0731AcE07ab1F61a58c1ea2C9dA62e2";
 module.exports = async function(callback) {
     try {
         console.log(`argv> token=${argv.token}, collateralFactor=${argv.collateralFactor}`);
@@ -19,8 +20,8 @@ module.exports = async function(callback) {
         let erc20 = await erc20Token.at(underlyingTokenAddr);
         let decimals = await erc20.decimals();
         let symbol = await erc20.symbol();
-        let fTokenName = "Universe " + symbol;
-        let fTokenSymbol = "u" + symbol.charAt(0).toUpperCase() + symbol.slice(1)
+        let fTokenName = "Creda " + symbol;
+        let fTokenSymbol = "c" + symbol.charAt(0).toUpperCase() + symbol.slice(1)
         let initialExchange = 0.02 * 10 ** decimals;
         console.log(`TokenDecimals: ${decimals}`)
         console.log(`TokenSymbol: ${symbol}`);
