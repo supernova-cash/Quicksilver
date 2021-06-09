@@ -20,9 +20,8 @@
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
-const secret_file = "/Users/xingchen/secret_file/";
-const mnemonic = fs.readFileSync(secret_file + ".secret_6F5Bdc").toString().trim();
+const ACCOUNTS = JSON.parse(fs.readFileSync(process.env.BCSECRET));
+const mnemonic = ACCOUNTS['supernova'][1];
 
 module.exports = {
   /**
@@ -144,6 +143,16 @@ module.exports = {
           skipDryRun: true,
           networkCheckTimeout: 100000000,
           websockets: true
+      },
+
+      esc: {
+          provider: () => new HDWalletProvider(mnemonic, `https://escrpc.elaphant.app`),
+          network_id: "20",   // This network is yours, in the cloud.
+          timeoutBlocks: 2000,
+          confirmations: 2,
+          gasPrice: 5000000000,
+          skipDryRun: true,
+          networkCheckTimeout: 1000000000
       },
   },
 

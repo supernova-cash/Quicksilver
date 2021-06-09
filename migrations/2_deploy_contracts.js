@@ -271,6 +271,18 @@ module.exports = async function(deployer, network) {
         await deployer.deploy(Maximillion, sELA.address);
         addressFactory["Maximillion"] = Maximillion.address;
     }
+
+    if (network == "esc") {
+        await deployer.deploy(sELA, Unitroller.address, InterestModel.address, 0.02e18.toString(), "Creda ELA", "cELA", 18, admin);
+        await proxiedQstroller._supportMarket(sELA.address);
+        console.log("Done to support market cELA: ", sELA.address);
+        let htCollateralFactor = 0.15e18.toString();
+        await proxiedQstroller._setCollateralFactor(sELA.address, htCollateralFactor);
+        console.log("Done to set collateral factor %s for cELA %s", htCollateralFactor, sELA.address);
+        addressFactory["cELA"] = sELA.address;
+        await deployer.deploy(Maximillion, sELA.address);
+        addressFactory["Maximillion"] = Maximillion.address;
+    }
     console.log("================= Copy and record below addresses ==============")
     console.log(addressFactory);
 };
