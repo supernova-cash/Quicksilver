@@ -20,6 +20,7 @@ module.exports = async function(callback) {
             "0x84D0401956f9265449B0B6794ED32283ce75755c": 40e16,    // MAN
             "0xf16d50407E97c60A059db55610b3C25828aFB341": 40e16,    // NULs
             "0x0FF521fC12E23998013c5Da168bb5bdf0011209B": 40e16,    // PNEO
+            "0x705F8794e27257Ce452F162fa8Fef1Dc9DF0BfE3": 30e16,    // BCASH
         }
         let qsControllerInstance = await Qstroller.at(Unitroller.address);
         for (let ctokenaddr_ in newTokenCollateralFactor) {
